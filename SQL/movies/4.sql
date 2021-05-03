@@ -1,0 +1,1 @@
+SELECT COUNT(*) AS "Rating 10 Movies" FROM "ratings" WHERE rating = 10.0

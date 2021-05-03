@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Quote
+{% endblock %}
+
+{% block main %}
+    <h2>Quote</h2>
+    {% if stock %}
+        <div class="alert alert-info" role="alert">
+          The current price of <strong>{{ stock['name'] }} {{ stock['symbol'] }}</strong> is currently set to <strong>{{ stock['price'] }}$</strong>
+        </div>
+    {% endif %}
+    <form action="/quote" method="post">
+        <div class="form-group">
+            <input id="stock-symbol" autocomplete="off" autofocus class="form-control" name="symbol" placeholder="Stock Symbol (eg. )" type="text">
+        </div>
+        <input id="submit" class="btn btn-primary" type="submit" value="Get Quote" disabled />
+    </form><br><br>
+    <script>
+        document.addEventListener("DOMContentLoaded", event => {
+            document.querySelector('#stock-symbol').onkeyup = () => {
+                const value = document.querySelector('#stock-symbol').value;
+                if (value){
+                    document.querySelector('#submit').removeAttribute('disabled');
+                }
+                else {
+                    document.querySelector('#submit').setAttribute('disabled', true);
+                }
+            }
+        });
+    </script>
+{% endblock %}

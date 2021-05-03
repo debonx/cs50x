@@ -1,0 +1,23 @@
+{
+  "name": "the-happy-video-player",
+  "version": "1.0.0",
+  "description": "Simlpe React based video player component to distribute happiness and joy.",
+  "main": "index.js",
+  "repository": "git@github.com:huraji/the-happy-video-player.git",
+  "author": "huraji (deboni.emanuele@gmail.com)",
+  "license": "MIT",
+  "scripts": {
+    "dev": "parcel index.html",
+    "build": "parcel build index.html"
+  },
+  "devDependencies": {
+    "parcel-bundler": "^1.12.4"
+  },
+  "dependencies": {
+    "@material-ui/core": "^4.0.0",
+    "@material-ui/icons": "^4.11.2",
+    "@types/react": "^16.8.6 || ^17.0.0",
+    "react": "^16.8.0 || ^17.0.0",
+    "react-dom": "^16.8.0 || ^17.0.0"
+  }
+}

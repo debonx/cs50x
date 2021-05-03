@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Buy
+{% endblock %}
+
+{% block main %}
+    <h2>Buy Stock</h2>
+    <form action="/buy" method="post">
+        <div class="form-group">
+            <input id="symbol" autocomplete="off" autofocus class="form-control" name="symbol" placeholder="Symbol" type="text">
+        </div>
+        <div class="form-group">
+            <input id="amount" autocomplete="off" autofocus class="form-control" name="amount" placeholder="Amount" type="number">
+        </div>
+        <input id="submit" class="btn btn-primary" type="submit" disabled />
+    </form>
+    <script>
+        document.addEventListener("DOMContentLoaded", event => {
+            let symbol = document.querySelector('#symbol');
+            let amount = document.querySelector('#amount');
+            let submit = document.querySelector('#submit');
+            const checkValues = (symbol, amount) => {
+                console.log(symbol, amount)
+                if ('' !== symbol && amount > 0) {
+                    return true;
+                }
+                return false;
+            }
+            symbol.onkeyup = event => {
+                if (checkValues(event.target.value, amount.value)) {
+                    submit.removeAttribute('disabled');
+                } else {
+                    submit.setAttribute('disabled', true);
+                }
+            }
+            amount.onkeyup = event => {
+                if (checkValues(symbol.value, event.target.value)) {
+                    submit.removeAttribute('disabled');
+                } else {
+                    submit.setAttribute('disabled', true);
+                }
+            }
+        });
+    </script>
+{% endblock %}

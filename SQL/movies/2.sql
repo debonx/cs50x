@@ -1,0 +1,1 @@
+SELECT birth as Birthdate FROM "people" WHERE name = "Emma Stone"

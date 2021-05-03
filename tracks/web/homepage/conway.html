@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+        <link href="styles.css" rel="stylesheet">
+        <title>Pictures</title>
+    </head>
+    <body>
+        <nav class="navbar sticky-top navbar-light bg-light mb-3">
+            <div class="container">
+                <span class="navbar__left">
+                    <a href="index.html" class="navbar-brand">huraji</a>
+                </span>
+                <span class="navbar__right">
+                    <a href="about.html">About</a>
+                    <a href="opinions.html">Opinions</a>
+                    <a href="conway.html">Conway</a>
+                </span>
+            </div>
+        </nav>
+        <main class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <h2>Conway's Tribute</h2>
+                    <p>Earlier this year I've been intrigued by the work of <a href="https://en.wikipedia.org/wiki/John_Horton_Conway" target="_blank">John Horton Conway</a>, around <a href="https://en.wikipedia.org/wiki/John_Horton_Conway" target="_blank">cellular automaton</a>. This resulted in the following JavaScript Game of Life, as per my personal interpretation. Later, Conway passed away in April and I feel like placing it here as small personal tribute.</p>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-sm-12">
+                    <button type="button" id="conway-game__button--start" class="conway-game__button btn-primary">Start Game</button>
+                    <div class="conway-game__container">
+                        <canvas id="conway-game__canvas" class="conway-game__canvas"></canvas>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <footer class="bg-info bg-gradient">
+            <div class="container justify-content-center">
+                <div class="row align-items-center">
+                    <div class="col col-sm-12">
+                        <h4>Glad to speak</h4>
+                        <a href="mailto:deboni.emanuele@gmail.com" class="btn btn-light">Send me an email</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </body>
+    <script>
+        const conwayGameButtonStart = document.getElementById('conway-game__button--start');
+        const conwayGameCanvas = document.getElementById('conway-game__canvas');
+        conwayGameButtonStart.onclick = event => new GameOfLife(conwayGameCanvas);
+    </script>
+    <script src="conway.js"></script>
+</html>

@@ -1,0 +1,53 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Sell
+{% endblock %}
+
+{% block main %}
+    <h2>Sell</h2>
+    <form action="/sell" method="post">
+        <div class="form-group">
+            <select id="stock" name="symbol" class="form-control">
+            {% if stocks|length > 0 %}
+                {% for key, value in stocks.items() %}
+                    <option value={{ key }}> {{ key }} (quantity {{ value }}) </option>
+                {% endfor %}
+            {% else %}
+                <option value="">No stocks available in your wallet</option>
+            {% endif %}
+            </select>
+        </div>
+        <div class="form-group">
+            <input id="amount" min="1" autocomplete="off" autofocus class="form-control" name="amount" placeholder="Amount to sell" type="number">
+        </div>
+        <input id="submit" class="btn btn-primary" type="submit" value="Sell" disabled />
+    </form>
+    <script>
+        document.addEventListener("DOMContentLoaded", event => {
+            let stock = document.querySelector('#stock');
+            let amount = document.querySelector('#amount');
+            let submit = document.querySelector('#submit');
+            const checkValues = (stock, amount) => {
+                if ('' !== stock && amount > 0) {
+                    return true;
+                }
+                return false;
+            }
+            stock.onchange = event => {
+                if (checkValues(event.target.value, amount.value)) {
+                    submit.removeAttribute('disabled');
+                } else {
+                    submit.setAttribute('disabled', true);
+                }
+            }
+            amount.onkeyup = event => {
+                if (checkValues(stock.value, event.target.value)) {
+                    submit.removeAttribute('disabled');
+                } else {
+                    submit.setAttribute('disabled', true);
+                }
+            }
+        });
+    </script>
+{% endblock %}

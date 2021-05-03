@@ -1,0 +1,59 @@
+main {
+    min-height: 70vh;
+}
+footer {
+    min-height: 30vh;
+    display: flex;
+}
+footer .container {
+    display: flex;
+    align-items: center;
+}
+.navbar__right {
+    display: flex;
+}
+.navbar__right a {
+    margin: 0 0 0 20px;
+    text-decoration: none;
+    color: #555555;
+}
+.navbar__right a:hover {
+    color: aqua;
+}
+.about-image {
+    display: block;
+    border-radius: 50%;
+    width: 300px;
+    max-width: 100%;
+    height: 320px;
+    overflow: hidden;
+    position: relative;
+}
+.about-image img {
+    position: absolute;
+    max-width: 100%;
+    margin-top: -15%;
+}
+.conway-game__button {
+    margin-bottom: 15px;
+}
+.conway-game__canvas {
+    width: 100%;
+    min-height: 500px;
+    height: 100%;
+    background-color: #dddddd;
+}
+.conway-game__container {
+    width: 100%;
+    position: relative;
+}
+.conway-game__container::before {
+    position: absolute;
+    content: 'Click "Start Game" :-)';
+    top: 50%;
+    left: 50%;
+    width: 180px;
+    margin-left: calc(-180px / 2);
+    text-align: center;
+    z-index: 1;
+}
