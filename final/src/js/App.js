@@ -32,7 +32,7 @@ class App extends React.Component {
     .then(() => {
       // Define relevant word to search
       const query = ['pranks', 'funny', 'prank', 'fun', 'jokes'];
-      const randomIndex = () => Math.floor(Math.random() * ((query.length - 1) - 0 + 1) + 0);
+      const randomIndex = () => Math.floor(Math.random() * ((query.length - 1) + 1));
       const selectedQuery = query[randomIndex()];
       const count = 10;
       // Make the request
@@ -101,7 +101,7 @@ class App extends React.Component {
       <Container>
           <SearchAppBar onClick={this.handleClick} />
           <h1>The Happy Video Player</h1>
-          <p>This is meant to spread some joy around. It fetches some funny videos from YouTube. I hope you enjoy it.</p>
+          <p>Click on "Refresh Joy" to refresh the list.</p>
           <Grid container spacing={3}>
             <Grid item xs={4}>
               <Menu onChange={this.handleChange} videos={this.state.videos} />

@@ -1,8 +1,7 @@
 # The Happy Video Player
-The happy video player is meant to spread some joy around. It fetches 10 funny videos from YouTube per time, based on specific positive words.
-I hope you enjoy it.
+This was my final project for CS50x. It's a bare-bones single page application built with React.js. It fetches 10 funny videos from YouTube, based on a list positive words (have a look to `App.js:34`).
 
-## Get Started
+### Try it out
 - Install yarn
 - Run `yarn install`
 - Run `yarn build` (for production) or `yarn dev` (for development)
